@@ -1,0 +1,14 @@
+//**********************************************//
+CREDENCIALES ADMINISTRADORES SISTEMA KIOSCO_LOS_PROFES
+//*********************************************//
+USUARIO: admin@kiosco.com
+PASSWORD: profes123
+
+//**********************************************//
+CREDENCIALES INVITADOS KIOSCO_LOS_PROFES
+//*********************************************//
+
+USUARIO: invitada@kiosco.com
+PASSWORD: invitada123
+
+LINK SITIO WEB : https://kiosco-los-profes.kesug.com/
