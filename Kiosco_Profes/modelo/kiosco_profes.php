@@ -84,12 +84,12 @@ $ASSIGNATURE_CARDS = [
     [
         'subject' => 'Matemáticas',
         'icon' => '', // Icono eliminado
-        'color' => 'hover:bg-indigo-50 border-indigo-500'
+        'color' => 'hover:bg-blue-50 border border-blue-500'
     ],
     [
         'subject' => 'Inglés',
         'icon' => '', // Icono eliminado
-        'color' => 'hover:bg-red-50 border-red-500'
+        'color' => 'hover:bg-orange-50 border border-orange-500'
     ],
     [
         'subject' => 'Química',
@@ -99,17 +99,17 @@ $ASSIGNATURE_CARDS = [
     [
         'subject' => 'Física',
         'icon' => '', // Icono eliminado
-        'color' => 'hover:bg-blue-50 border-blue-500'
+        'color' => 'hover:bg-purple-50 border-purple-500'
     ],
     [
         'subject' => 'Biología',
         'icon' => '', // Icono eliminado
-        'color' => 'hover:bg-teal-50 border-teal-500'
+        'color' => 'hover:bg-cyan-50 border border-cyan-500'
     ],
     [
         'subject' => 'Comprensión Lectora',
         'icon' => '', // Icono eliminado
-        'color' => 'hover:bg-purple-50 border-purple-500'
+        'color' => 'hover:bg-rose-50 border border-rose-500'
     ],
     [
         'subject' => 'Ciencias Sociales',
@@ -811,8 +811,10 @@ function render_slider_show($images)
 function render_subject_cards($cards)
 {
 ?>
+    <!--
     <style>
         /* Contenedor con perspectiva para efecto 3D */
+        /* XANTY: ESTILOS DE LN 817 A 941 NO SIRVEN PARA NADA */
         .grid-cards {
             perspective: 1000px;
         }
@@ -937,21 +939,29 @@ function render_subject_cards($cards)
             word-wrap: break-word;
             max-width: 200%;
             display: block;
-        }
+        } 
     </style>
+    -->
 
     <style>
         /* Contenedor Grid optimizado para Kiosco */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: #050505;
+            color: #f5f5f5;
+        }
+
         .subjects-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            padding: 10px;
+            padding: 0px;
         }
 
         @media (min-width: 768px) {
             .subjects-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
