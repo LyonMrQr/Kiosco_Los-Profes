@@ -960,7 +960,8 @@ function render_subject_cards($cards)
         .subjects-grid {
            display: grid;
            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-           gap: 16px;
+           gap: 18px;
+           padding: 20px;
         }
 
         /* Tarjeta Base Estilo "Glass-Neon" */
