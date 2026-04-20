@@ -1057,6 +1057,14 @@ function render_subject_cards($cards)
             border-color: #22d3ee !important;
         }
 
+        /* Efecto Hover para PC (Mouse) */
+        .kiosk-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            filter: brightness(1.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.7);
+            cursor: pointer;
+        }
+
         /* Efecto al tocar (Feedback táctil fuerte) */
         .kiosk-card:active {
             transform: scale(0.9) brightness(1.5);
