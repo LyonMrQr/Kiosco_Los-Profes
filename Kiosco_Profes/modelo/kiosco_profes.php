@@ -1685,7 +1685,7 @@ function render_subject_cards($cards)
                             <div class="flex items-center gap-6 mb-10">
                                 <div class="h-12 w-3 bg-indigo-500 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
                                 <h2 class="text-3xl md:text-5xl font-black text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] mb-10 text-center uppercase tracking-tighter">
-                                    ✨ Paso 1: Selecciona la Asesoría que Necesitas
+                                    ✨ Paso 1: ¡Selecciona la asesoría que necesitas y agenda tu sesión ahora!
                                 </h2>
                             </div>
 
