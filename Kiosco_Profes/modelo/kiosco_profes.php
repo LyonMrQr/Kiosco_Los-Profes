@@ -76,7 +76,7 @@ $ASSIGNATURES = [
     'Biología',
     'Comprensión Lectora',
     'Ciencias Sociales',
-    'Otro tipo de asesorías'
+    'Otro Tipo de Asesorías'
 ];
 
 // NUEVO: Definición de las tarjetas para la vista interactiva
