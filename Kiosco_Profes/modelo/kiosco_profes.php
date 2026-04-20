@@ -1110,10 +1110,6 @@ function render_subject_cards($cards)
                 <span class="card-text">
                     <?php echo htmlspecialchars($card['subject']); ?>
                 </span>
-
-                <div class="absolute bottom-4 bg-black/30 px-4 py-1 rounded-full border border-white/10">
-                    <span class="text-[10px] font-black tracking-[0.2em]">TOCAR</span>
-                </div>
             </div>
         <?php endforeach; ?>
     </div>
