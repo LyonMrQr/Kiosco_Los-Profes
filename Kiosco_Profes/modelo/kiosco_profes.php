@@ -109,7 +109,7 @@ $ASSIGNATURE_CARDS = [
     [
         'subject' => 'Comprensión Lectora',
         'icon' => '', // Icono eliminado
-        'color' => 'hover:bg-rose-50 border border-rose-500'
+        'color' => 'hover:bg-yellow-50 border border-yellow-500'
     ],
     [
         'subject' => 'Ciencias Sociales',
@@ -1046,6 +1046,13 @@ function render_subject_cards($cards)
             border-color: #f87171 !important;
         }
 
+        .glow-yellow {
+            background: linear-gradient(135deg, #c0c31c, #f2f24c);
+            box-shadow: 0 0 25px rgba(199, 199, 18, 0.5);
+            border-color: #f6ff00 !important;
+
+        }
+
         /* Efecto al tocar (Feedback táctil fuerte) */
         .kiosk-card:active {
             transform: scale(0.9) brightness(1.5);
@@ -1074,8 +1081,9 @@ function render_subject_cards($cards)
             if (strpos($color, 'purple') !== false) $glow_class = 'glow-purple';
             elseif (strpos($color, 'pink') !== false) $glow_class = 'glow-pink';
             elseif (strpos($color, 'green') !== false) $glow_class = 'glow-green';
-            elseif (strpos($color, 'orange') !== false || strpos($color, 'yellow') !== false) $glow_class = 'glow-orange';
+            elseif (strpos($color, 'orange') !== false || strpos($color, 'glow-yellow') !== false) $glow_class = 'glow-orange';
             elseif (strpos($color, 'red') !== false) $glow_class = 'glow-red';
+            elseif (strpos($color, 'yellow') !== false) $glow_class = 'glow-yellow';
         ?>
             <div class="kiosk-card <?php echo $glow_class; ?>"
                 onclick="selectSubject('<?php echo addslashes($card['subject']); ?>')">
