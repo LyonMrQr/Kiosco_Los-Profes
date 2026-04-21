@@ -1759,7 +1759,7 @@ function render_subject_cards($cards)
                                         /* Reducido de 75px a 65px */
                                         font-size: 1.3rem;
                                         border-radius: 1.5rem;
-                                        background: linear-gradient(135deg, var(--accent-color, #6366f1), #000);
+                                        background: linear-gradient(135deg, var(--accent-color, #6366f1));
                                         box-shadow: 0 8px 25px -5px var(--accent-color, #6366f1);
                                         border: 1px solid rgba(255, 255, 255, 0.1);
                                     }
