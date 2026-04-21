@@ -1749,8 +1749,8 @@ function render_subject_cards($cards)
                                     }
 
                                     .kiosk-input-sm:focus {
-                                        border-color: #6366f1 !important;
-                                        box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+                                        border-color: var(--accent-color, #6366f1) !important;
+                                        box-shadow: 0 0 15px var(--accent-color, #6366f1);
                                     }
 
                                     /* Botón compacto */
@@ -1759,19 +1759,19 @@ function render_subject_cards($cards)
                                         /* Reducido de 75px a 65px */
                                         font-size: 1.3rem;
                                         border-radius: 1.5rem;
-                                        background: linear-gradient(135deg, #6366f1, #4338ca);
-                                        box-shadow: 0 8px 15px rgba(67, 56, 202, 0.4);
+                                        background: linear-gradient(135deg, var(--accent-color, #6366f1), #000);
+                                        box-shadow: 0 8px 25px -5px var(--accent-color, #6366f1);
                                         border: 1px solid rgba(255, 255, 255, 0.1);
                                     }
 
                                     /* Badge de materia compacto */
                                     .subject-badge-sm {
-                                        background: linear-gradient(to right, rgba(99, 102, 241, 0.15), rgba(99, 102, 241, 0.05));
-                                        border: 2px solid #6366f1;
+                                        background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+                                        border: 2px solid var(--accent-color, #6366f1);
                                         padding: 0.8rem;
                                         /* Reducido de 1.2rem */
                                         border-radius: 1.5rem;
-                                        text-shadow: 0 0 8px rgba(99, 102, 241, 0.6);
+                                        text-shadow: 0 0 12px var(--accent-color, #6366f1);
                                         margin-bottom: 0.5rem;
                                     }
                                 </style>
@@ -2873,6 +2873,22 @@ function render_subject_cards($cards)
      * Maneja la selección de la asignatura desde la tarjeta.
      */
     function selectSubject(subject) {
+        // Mapeo de colores neón por materia
+        const colorMap = {
+            'Matemáticas': '#6366f1',
+            'Inglés': '#f97316',
+            'Química': '#22c55e',
+            'Física': '#b917eaf9',
+            'Biología': '#06b6d4',
+            'Comprensión Lectora': '#fbbf24',
+            'Ciencias Sociales': '#fa2c2c',
+            'Otro Tipo de Asesorías': '#ec4899'
+        };
+
+        // Aplicar el color correspondiente al contenedor del formulario
+        const accentColor = colorMap[subject] || '#6366f1';
+        formContainer.style.setProperty('--accent-color', accentColor);
+
         // 1. Ocultar todas las tarjetas y el título de selección
         subjectCards.forEach(card => card.style.display = 'none');
 
