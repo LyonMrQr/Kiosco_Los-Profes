@@ -1641,6 +1641,7 @@ function render_subject_cards($cards)
                     background: #050505 !important;
                     border-top: 2px solid var(--neon-indigo);
                     box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.9);
+                    padding: 14px;
                 }
 
                 .kiosk-input-pro {
