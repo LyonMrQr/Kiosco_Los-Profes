@@ -1768,7 +1768,7 @@ function render_subject_cards($cards)
                                     .subject-badge-sm {
                                         background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
                                         border: 2px solid var(--accent-color, #6366f1);
-                                        padding: 0.8rem;
+                                        padding: 1rem;
                                         /* Reducido de 1.2rem */
                                         border-radius: 1.5rem;
                                         text-shadow: 0 0 12px var(--accent-color, #6366f1);
