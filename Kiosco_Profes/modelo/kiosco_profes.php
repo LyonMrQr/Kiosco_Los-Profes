@@ -1821,7 +1821,6 @@ function render_subject_cards($cards)
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </button>
-
                                     <div class="h-2 md:hidden"></div>
                                 </form>
                             </div>
