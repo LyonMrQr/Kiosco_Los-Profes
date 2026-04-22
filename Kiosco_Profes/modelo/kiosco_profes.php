@@ -1788,7 +1788,6 @@ function render_subject_cards($cards)
                                     <input type="hidden" id="subject" name="subject">
 
                                     <div id="subject_display" class="subject-badge-sm text-center text-white font-black text-xl shadow-lg italic">
-                                        
                                     </div>
 
                                     <div id="other_subject_container" style="display:none;">
@@ -1827,7 +1826,6 @@ function render_subject_cards($cards)
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
