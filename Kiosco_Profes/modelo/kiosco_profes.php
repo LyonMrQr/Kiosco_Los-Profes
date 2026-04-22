@@ -1771,7 +1771,8 @@ function render_subject_cards($cards)
                                         padding: 1rem;
                                         /* Reducido de 1.2rem */
                                         border-radius: 1.5rem;
-                                        text-shadow: 0 0 12px var(--accent-color, #6366f1);
+                                        text-shadow: 0 0 10px var(--accent-color, #6366f1);
+                                        box-shadow: 0 0 5px var(--accent-color, #6366f1);
                                         margin-bottom: 0.5rem;
                                     }
                                 </style>
