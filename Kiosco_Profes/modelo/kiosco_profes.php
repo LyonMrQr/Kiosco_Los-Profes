@@ -1718,10 +1718,15 @@ function render_subject_cards($cards)
                             </div>
 
                             <div class="pb-12 overflow-y-auto">
-                                <div class="block justify-between items-center mb-10">
+                                <div class="block justify-between items-center mb-7">
                                     <div>
-                                        <h2 class="text-4xl font-black text-white italic" id="selected_subject_title">AGENDAR</h2>
-                                        <p class="text-[var(--accent-color)] font-bold text-sm tracking-widest uppercase">Completa los datos </p>
+                                        <h2 class="text-4xl font-black text-[var(--accent-color)] p-3 italic" id="selected_subject_title">AGENDAR</h2>
+                                        <button type="button" onclick="hideForm()" class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-2xl active:scale-95 active:bg-[var(--accent-color)] transition-all group">
+                                            <svg class="w-5 h-5 text-[var(--accent-color)] group-active:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                            </svg>
+                                        <span class="text-xs font-black text-white uppercase">Regresar</span>
+                                        </button>
                                     </div>
                                 </div>
 
@@ -1750,17 +1755,17 @@ function render_subject_cards($cards)
 
                                     .kiosk-input-sm:focus {
                                         border-color: var(--accent-color, #6366f1) !important;
-                                        box-shadow: 0 0 15px var(--accent-color, #6366f1);
+                                        box-shadow: 0 0 5px var(--accent-color, #6366f1);
                                     }
 
                                     /* Botón compacto */
                                     .btn-kiosk-sm {
                                         height: 65px;
                                         /* Reducido de 75px a 65px */
-                                        font-size: 1.3rem;
+                                        font-size: 1rem;
                                         border-radius: 1.5rem;
                                         background: linear-gradient(135deg, var(--accent-color, #6366f1));
-                                        box-shadow: 0 8px 25px -5px var(--accent-color, #6366f1);
+                                        box-shadow: 0 8px 10px -5px var(--accent-color, #6366f1);
                                         border: 1px solid rgba(255, 255, 255, 0.1);
                                     }
 
@@ -1768,26 +1773,21 @@ function render_subject_cards($cards)
                                     .subject-badge-sm {
                                         background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
                                         border: 2px solid var(--accent-color, #6366f1);
-                                        padding: 0.8rem;
+                                        padding: 1rem;
                                         /* Reducido de 1.2rem */
                                         border-radius: 1.5rem;
-                                        text-shadow: 0 0 12px var(--accent-color, #6366f1);
+                                        text-shadow: 0 0 10px var(--accent-color, #6366f1);
+                                        box-shadow: 0 0 5px var(--accent-color, #6366f1);
                                         margin-bottom: 0.5rem;
                                     }
                                 </style>
-                                <button type="button" onclick="hideForm()" class="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-2xl active:scale-95 active:bg-[var(--accent-color)] transition-all group">
-                                    <svg class="w-5 h-5 text-[var(--accent-color)] group-active:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                                    </svg>
-                                    <span class="text-xs font-black text-white uppercase">Regresar</span>
-                                </button>
-
+                            
                                 <form method="POST" class="space-y-4 max-w-md mx-auto">
+                                    <p class="text-[var(--accent-color)] font-bold text-sm tracking-widest uppercase">Completa los datos </p>
                                     <input type="hidden" name="action" value="schedule">
                                     <input type="hidden" id="subject" name="subject">
 
                                     <div id="subject_display" class="subject-badge-sm text-center text-white font-black text-xl shadow-lg italic">
-                                        --
                                     </div>
 
                                     <div id="other_subject_container" style="display:none;">
@@ -1796,22 +1796,22 @@ function render_subject_cards($cards)
 
                                     <div class="grid grid-cols-2 gap-3">
                                         <div class="relative">
-                                            <label class="text-[8px] font-black text-[var(--accent-color)] absolute -top-2 left-4 bg-black px-1 z-10 uppercase tracking-tighter">Fecha</label>
+                                            <label class="text-[10px] font-black text-[var(--accent-color)] absolute -top-2 left-4 bg-black px-1 z-10 uppercase tracking-tighter">Fecha</label>
                                             <input type="date" name="date" class="kiosk-input-sm" required>
                                         </div>
                                         <div class="relative">
-                                            <label class="text-[8px] font-black text-[var(--accent-color)] absolute -top-2 left-4 bg-black px-1 z-10 uppercase tracking-tighter">Hora</label>
+                                            <label class="text-[10px] font-black text-[var(--accent-color)] absolute -top-2 left-4 bg-black px-1 z-10 uppercase tracking-tighter">Hora</label>
                                             <input type="time" name="time" class="kiosk-input-sm" required>
                                         </div>
                                     </div>
 
                                     <div class="relative">
-                                        <label class="text-[8px] font-black text-[var(--accent-color)] absolute -top-2 left-4 bg-black px-1 z-10 uppercase tracking-tighter">Estudiante</label>
+                                        <label class="text-[10px] font-black text-[var(--accent-color)] absolute -top-2 left-4 bg-black px-1 z-10 uppercase tracking-tighter">Estudiante</label>
                                         <input type="text" name="student_name" placeholder="Tu nombre..." class="kiosk-input-sm" required>
                                     </div>
 
                                     <div class="relative">
-                                        <label class="text-[8px] font-black text-[var(--accent-color)] absolute -top-2 left-4 bg-black px-1 z-10 uppercase tracking-tighter">WhatsApp</label>
+                                        <label class="text-[10px] font-black text-[var(--accent-color)] absolute -top-2 left-4 bg-black px-1 z-10 uppercase tracking-tighter">WhatsApp</label>
                                         <input type="tel" name="student_contact" placeholder="Número de contacto" class="kiosk-input-sm" required>
                                     </div>
 
@@ -1821,13 +1821,11 @@ function render_subject_cards($cards)
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </button>
-
                                     <div class="h-2 md:hidden"></div>
                                 </form>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
 
