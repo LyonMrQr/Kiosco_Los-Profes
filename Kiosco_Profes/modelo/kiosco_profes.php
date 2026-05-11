@@ -728,25 +728,25 @@ if ($is_admin) {
 // --- 7. Datos para el Slider Show ---
 $SLIDER_IMAGES = [
     [
-        'url' => 'r4.jpg',
+        'url' => '../assets/r4.jpg',
         'title' => 'Domina las Matemáticas y las Ciencias',
         'caption' => 'Refuerza Matemáticas, Física y Química con docentes expertos y acompañamiento personalizado.',
         'cta' => 'Agenda tu asesoría',
         'color' => 'bg-gradient-to-r from-indigo-600 to-indigo-500'
     ],
     [
-        'url' => 'r2.jpg',
+        'url' => '../assets/r2.jpg',
         'title' => 'Prepárate para tu examen con confianza',
         'caption' => 'Te ayudamos a comprender, practicar y aprobar con éxito ese examen tan importante.',
         'cta' => 'Comienza ahora',
-        'color' => 'linear-gradient(135deg, #059669 0%, #10b981 100%)' // Emerald-600 a Emerald-500
+        'color' => 'bg-gradient-to-r from-emerald-600 to-green-500'
     ],
     [
-        'url' => 'P1.jpg',
+        'url' => '../assets/r1.jpg',
         'title' => 'Mejora tu Lectura e Inglés',
         'caption' => 'Fortalece tu comprensión lectora e inglés de forma práctica, clara y efectiva.',
         'cta' => 'Quiero mejorar',
-        'color' => 'linear-gradient(135deg, #ffe4e6 0%, #ffedd5 100%)' // Rose-300 a Orange-100
+        'color' => 'bg-gradient-to-r from-rose-600 to-red-500'
     ],
 ];
 
@@ -759,7 +759,7 @@ function render_slider_show($images)
 {
     if (empty($images)) return;
 ?>
-    <div id="slider-container" class="max-w-4xl mx-auto relative overflow-hidden">
+    <div id="slider-container" class="max-w-4xl mx-auto relative overflow-hidden rounded-xl shadow-2xl">
         <div id="slider-track" class="flex transition-transform duration-500 ease-in-out">
             <?php foreach ($images as $index => $image): ?>
                 <div class="slider-item flex-shrink-0 w-full aspect-video md:aspect-[21/9] relative" data-index="<?php echo $index; ?>">
@@ -1166,7 +1166,7 @@ function render_subject_cards($cards)
 
         /* Cabecera Creativa Curvada */
         .header-wave {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.8)), url('barnner.png');
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.8)), url('../assets/barnner.png');
             background-size: cover;
             background-position: center;
             height: 280px;
@@ -1275,7 +1275,7 @@ function render_subject_cards($cards)
 
         /* 2. EL FONDO (Lógica de Nitidez y Ajuste) */
         .schedule-bg {
-            background-image: url('barnner.png');
+            background-image: url('../assets/barnner.png');
             /* 1. EVITA CORTES: Asegura que la imagen se estire al contenedor */
             background-size: cover;
 
@@ -1435,12 +1435,6 @@ function render_subject_cards($cards)
         /* Inputs que brillan al enfocarse */
         input:focus {
             box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-        }
-
-        /* Mejora de los Sliders para que no corten el diseño */
-        .schedule-bg {
-            background-color: #f0f2f5;
-            background-attachment: fixed;
         }
 
         /* Prevenir selección de texto para modo Kiosco */
@@ -1653,11 +1647,6 @@ function render_subject_cards($cards)
                     --neon-pink: #ec4899;
                 }
 
-                .schedule-bg {
-                    background-color: var(--kiosk-bg);
-                    background-image: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent);
-                }
-
                 /* Slider con marco de profundidad */
                 .slider-frame {
                     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -1714,14 +1703,14 @@ function render_subject_cards($cards)
                 }
             </style>
 
-            <div class="schedule-bg min-h-screen relative overflow-x-hidden text-white">
+            <div class="min-h-screen relative overflow-x-hidden text-white">
 
                 <div class="relative z-10 container mx-auto px-4 py-8">
 
                     <div class="max-w-4xl mx-auto mb-10 text-center animate-fade-in">
                         <div class="relative inline-block">
                             <div class="absolute inset-0 bg-indigo-500 blur-2xl opacity-20"></div>
-                            <img src="logo.avif" class="relative mx-auto h-24 md:h-32 rounded-[2.5rem] mb-6 border border-white/10 p-2 bg-black">
+                            <img src="../assets/logo.avif" class="relative mx-auto h-24 md:h-32 rounded-[2.5rem] mb-6 border border-white/10 p-2 bg-black">
                         </div>
                         <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase italic">
                             Kiosco <span class="text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]">Los Profe’s</span>
@@ -2309,7 +2298,7 @@ function render_subject_cards($cards)
         // ===============================================
         elseif ($current_view === $VIEWS['ADMIN_LOGIN']): ?>
 
-                <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('por.jpg');">
+                <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/por.jpg');">
                     <div class="w-full bg-white/95 backdrop-blur-sm rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800/95 dark:border-gray-700">
                         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white text-center">Acceso Administrador</h2>
