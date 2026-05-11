@@ -1708,7 +1708,6 @@ function render_subject_cards($cards)
                                 <?php render_subject_cards($ASSIGNATURE_CARDS); ?>
                             </div>
                         </div>
-
                     </div>
 
                     <div id="schedule_form_container"
