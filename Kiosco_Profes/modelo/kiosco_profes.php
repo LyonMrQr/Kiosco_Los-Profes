@@ -1077,7 +1077,7 @@ function render_subject_cards($cards)
         .card-text {
             font-size: 1.6rem;
             font-weight: 900;
-            color: white;
+            color: #f2e9e9f7;
             text-transform: uppercase;
             text-align: center;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
@@ -1117,7 +1117,7 @@ function render_subject_cards($cards)
 
                 <?php echo $card['icon']; ?>
 
-                <span class="card-text">
+                <span class="card-text dark:text-gray-100">
                     <?php echo htmlspecialchars($card['subject']); ?>
                 </span>
             </div>
@@ -1568,11 +1568,11 @@ function render_subject_cards($cards)
         </style>
 
         <a href="?view=<?php echo $VIEWS['ADMIN_LOGIN']; ?>"
-            class="btn-admin-glow top-4 right-4 md:top-8 md:right-8 w-14 h-14 md:w-16 md:h-16 rounded-2xl z-[100]"
+            class="btn-admin-glow top-4 right-4 p-3 rounded-full bg-gray-200 dark:bg-gray-800 transition duration-300 z-[110] hover:scale-110"
             aria-label="Acceso Administrador"
             title="Acceso Administrador">
 
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white icon-admin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-gray-800 dark:text-gray-100 icon-admin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
         </a>
