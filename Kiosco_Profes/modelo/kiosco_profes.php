@@ -1710,9 +1710,9 @@ function render_subject_cards($cards)
                     <div class="max-w-4xl mx-auto mb-10 text-center animate-fade-in">
                         <div class="relative inline-block">
                             <div class="absolute inset-0 bg-indigo-500 blur-2xl opacity-20"></div>
-                            <img src="../assets/logo.avif" class="relative mx-auto h-24 md:h-32 rounded-[2.5rem] mb-6 border border-white/10 p-2 bg-black">
+                            <img src="../assets/logo.avif" class="relative mx-auto h-24 md:h-32 mb-6 p-2">
                         </div>
-                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase italic">
+                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase italic text-black dark:text-white">
                             Kiosco <span class="text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]">Los Profe’s</span>
                         </h1>
                         <p class="mt-4 text-indigo-400 font-bold uppercase tracking-[0.4em] text-sm">
@@ -1728,7 +1728,7 @@ function render_subject_cards($cards)
                             <?php render_slider_show($SLIDER_IMAGES); ?>
                         </div>
 
-                        <div class="bg-[#080809] p-10 rounded-[4rem] border border-white/5 shadow-2xl">
+                        <div class="p-10 rounded-[4rem] border border-white/5 shadow-2xl">
                             <div class="flex items-center gap-5 mb-10">
                                 <div class="h-14 w-4 bg-indigo-500 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
                                 <h2 class="md:pl[100px] md:pr[100px] xl:pr[100px] xl:pl-[100px] 2xl:pr-[100px] 2xl:pl-[100px] text-3xl md:text-5xl font-black text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] mb-10 text-center uppercase tracking-tighter">
