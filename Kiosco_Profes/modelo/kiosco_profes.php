@@ -1519,7 +1519,7 @@ function render_subject_cards($cards)
     </script>
 
         <!-- Revisar este boton de cambiar modo -->
-    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center bg-cover bg-center bg-no-repeat">
+    <div>
         <button id="CambiarModo"
             aria-label="Cambiar entre modo claro y oscuro-"
             class="fixed top-4 right-4 p-3 rounded-full bg-gray-200 dark:bg-gray-800 transition duration-300 z-[110] hover:scale-110">
