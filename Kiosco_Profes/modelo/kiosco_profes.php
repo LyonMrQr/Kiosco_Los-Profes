@@ -1502,6 +1502,52 @@ function render_subject_cards($cards)
 
 <body class="min-h-screen">
 
+    <script>
+                    tailwind.config = {
+                        darkMode: 'class'
+                    }
+                </script>
+                <script>
+                    if (
+                        localStorage.getItem('theme') === 'dark' ||
+                        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+                    ) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+    </script>
+
+        <!-- Revisar este boton de cambiar modo -->
+    <div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center bg-cover bg-center bg-no-repeat">
+        <button id="CambiarModo"
+            aria-label="Cambiar entre modo claro y oscuro-"
+            class="fixed top-4 right-4 p-3 rounded-full bg-gray-200 dark:bg-gray-800 transition duration-300 z-[110] hover:scale-110">
+
+            <!-- Icono modo oscuro -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-800 dark:hidden">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+
+
+            <!-- Icono modo claro -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-gray-200 hidden dark:block">
+                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+            </svg>
+        </button>
+    </div>
+    
+                <script>
+                    // Script para el botón de cambio de modo
+                    document.getElementById("CambiarModo").addEventListener("click", () => {
+                        const html = document.documentElement;
+                        const isDark = html.classList.toggle("dark");
+
+                        // Guardar preferencia
+                        localStorage.setItem("theme", isDark ? "dark" : "light");
+                    });
+                </script>
+
     <?php if (!$is_admin && $current_view !== $VIEWS['ADMIN_LOGIN']): // Botón de acceso Admin flotante 
     ?>
         <style>
@@ -2264,37 +2310,7 @@ function render_subject_cards($cards)
         // ===============================================
         elseif ($current_view === $VIEWS['ADMIN_LOGIN']): ?>
 
-                <script>
-                    tailwind.config = {
-                        darkMode: 'class'
-                    }
-                </script>
-                <script>
-                    if (
-                        localStorage.getItem('theme') === 'dark' ||
-                        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
-                    ) {
-                        document.documentElement.classList.add('dark');
-                    } else {
-                        document.documentElement.classList.remove('dark');
-                    }
-                </script>
                 <div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('por.jpg');">
-                    <button id="CambiarModo"
-                        class="fixed top-4 right-4 p-3 rounded-full bg-gray-200 dark:bg-gray-800 transition duration-300 z-[110] hover:scale-110">
-
-                        <!-- Icono modo oscuro -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-800 dark:hidden">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                        </svg>
-
-
-                        <!-- Icono modo claro -->
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-gray-200 hidden dark:block">
-                            <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
-                        </svg>
-                    </button>
-
                     <div class="w-full bg-white/95 backdrop-blur-sm rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800/95 dark:border-gray-700">
                         <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                             <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white text-center">Acceso Administrador</h2>
@@ -2305,14 +2321,14 @@ function render_subject_cards($cards)
                                 <div>
                                     <label for="admin_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
                                     <input type="email" id="admin_email" name="email" value=""
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="admin@gmail.com"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="admin@gmail.com"
                                         required>
                                 </div>
 
                                 <div>
                                     <label for="admin_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
                                     <input type="password" id="admin_password" name="password" value=""
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••"
                                         required>
                                 </div>
 
@@ -2328,17 +2344,6 @@ function render_subject_cards($cards)
                         </div>
                     </div>
                 </div>
-
-                <script>
-                    // Script para el botón de cambio de modo
-                    document.getElementById("CambiarModo").addEventListener("click", () => {
-                        const html = document.documentElement;
-                        const isDark = html.classList.toggle("dark");
-
-                        // Guardar preferencia
-                        localStorage.setItem("theme", isDark ? "dark" : "light");
-                    });
-                </script>
             <?php
 
         // ===============================================
