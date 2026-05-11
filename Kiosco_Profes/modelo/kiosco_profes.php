@@ -1273,36 +1273,6 @@ function render_subject_cards($cards)
             user-select: none;
         }
 
-        /* 2. EL FONDO (Lógica de Nitidez y Ajuste) */
-        .schedule-bg {
-            background-image: url('../assets/barnner.png');
-            /* 1. EVITA CORTES: Asegura que la imagen se estire al contenedor */
-            background-size: cover;
-
-            /* 2. POSICIÓN: Centra la imagen para que si sobra espacio, no se vea mal */
-            background-position: center center;
-            background-repeat: no-repeat !important;
-
-            /* 3. NITIDEZ EN ANDROID: fixed suele pixelar en tablets, scroll es mejor */
-            background-attachment: scroll;
-
-            /* 4. CLARIDAD: Forzar renderizado de alta calidad */
-            image-rendering: -webkit-optimize-contrast;
-
-            width: 100%;
-            height: 100%;
-            filter: none !important;
-            /* Asegura que ningún filtro externo la empañe */
-        }
-
-        /* Ajuste para Tablets (Evita que la imagen se vea "gigante" o cortada) */
-        @media (min-width: 768px) {
-            .schedule-bg {
-                background-size: 100% 100%;
-                /* Forza a que encaje exacto en la pantalla de la tablet */
-            }
-        }
-
         .texto-combinado {
             color: #ffffff !important;
             /* Sombra estratégica: genera contraste en bordes de letras */
@@ -1720,8 +1690,6 @@ function render_subject_cards($cards)
                         </p>
                     </div>
 
-
-
                     <div class="max-w-6xl mx-auto space-y-12">
 
                         <div class="relative">
@@ -1744,15 +1712,15 @@ function render_subject_cards($cards)
                     </div>
 
                     <div id="schedule_form_container"
-                        class="fixed inset-0 z-[100] hidden flex items-end md:items-center justify-center bg-black/90 backdrop-blur-xl">
+                        class="bg-gray-100 dark:bg-gray-900 fixed inset-0 z-[100] hidden flex items-end md:items-center justify-center">
 
                         <div class="android-sheet w-full max-w-2xl md:rounded-[4rem] rounded-t-[4rem] flex flex-col max-h-[96dvh] animate-slide-up">
 
-                            <div class="w-full flex justify-center py-6" onclick="hideForm()">
+                            <div class="w-full flex justify-center py-4" onclick="hideForm()">
                                 <div class="w-24 h-2 bg-white/20 rounded-full"></div>
                             </div>
 
-                            <div class="pb-12 overflow-y-auto">
+                            <div class="pb-10 overflow-y-auto">
                                 <div class="block justify-between items-center mb-7">
                                     <div>
                                         <h2 class="text-4xl font-black text-[var(--accent-color)] p-3 italic" id="selected_subject_title">AGENDAR</h2>
