@@ -728,25 +728,25 @@ if ($is_admin) {
 // --- 7. Datos para el Slider Show ---
 $SLIDER_IMAGES = [
     [
-        'url' => 'r4.jpg',
+        'url' => '../assets/r4.jpg',
         'title' => 'Domina las Matemáticas y las Ciencias',
         'caption' => 'Refuerza Matemáticas, Física y Química con docentes expertos y acompañamiento personalizado.',
         'cta' => 'Agenda tu asesoría',
         'color' => 'bg-gradient-to-r from-indigo-600 to-indigo-500'
     ],
     [
-        'url' => 'r2.jpg',
+        'url' => '../assets/r2.jpg',
         'title' => 'Prepárate para tu examen con confianza',
         'caption' => 'Te ayudamos a comprender, practicar y aprobar con éxito ese examen tan importante.',
         'cta' => 'Comienza ahora',
-        'color' => 'linear-gradient(135deg, #059669 0%, #10b981 100%)' // Emerald-600 a Emerald-500
+        'color' => 'bg-gradient-to-r from-emerald-600 to-green-500'
     ],
     [
-        'url' => 'P1.jpg',
+        'url' => '../assets/r1.jpg',
         'title' => 'Mejora tu Lectura e Inglés',
         'caption' => 'Fortalece tu comprensión lectora e inglés de forma práctica, clara y efectiva.',
         'cta' => 'Quiero mejorar',
-        'color' => 'linear-gradient(135deg, #ffe4e6 0%, #ffedd5 100%)' // Rose-300 a Orange-100
+        'color' => 'bg-gradient-to-r from-rose-600 to-red-500'
     ],
 ];
 
@@ -759,7 +759,7 @@ function render_slider_show($images)
 {
     if (empty($images)) return;
 ?>
-    <div id="slider-container" class="max-w-4xl mx-auto relative overflow-hidden">
+    <div id="slider-container" class="max-w-4xl mx-auto relative overflow-hidden rounded-xl shadow-2xl">
         <div id="slider-track" class="flex transition-transform duration-500 ease-in-out">
             <?php foreach ($images as $index => $image): ?>
                 <div class="slider-item flex-shrink-0 w-full aspect-video md:aspect-[21/9] relative" data-index="<?php echo $index; ?>">
@@ -948,6 +948,7 @@ function render_subject_cards($cards)
             margin: 0;
             padding: 0;
         }
+
         body {
             display: flex;
             flex-direction: column;
@@ -957,10 +958,10 @@ function render_subject_cards($cards)
         }
 
         .subjects-grid {
-           display: grid;
-           grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-           gap: 18px;
-           padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            padding: 20px;
         }
 
         /* Tarjeta Base Estilo "Glass-Neon" */
@@ -1076,7 +1077,7 @@ function render_subject_cards($cards)
         .card-text {
             font-size: 1.6rem;
             font-weight: 900;
-            color: white;
+            color: #f2e9e9f7;
             text-transform: uppercase;
             text-align: center;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
@@ -1091,10 +1092,10 @@ function render_subject_cards($cards)
             height: 48px;
             margin-bottom: 5px;
             z-index: 10;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
         }
     </style>
-    
+
 
     <div class="subjects-grid">
         <?php foreach ($cards as $card):
@@ -1108,7 +1109,7 @@ function render_subject_cards($cards)
             elseif (strpos($color, 'red') !== false) $glow_class = 'glow-red';
             elseif (strpos($color, 'yellow') !== false) $glow_class = 'glow-yellow';
             elseif (strpos($color, 'cyan') !== false) $glow_class = 'glow-cyan';
-       ?>
+        ?>
             <div class="kiosk-card <?php echo $glow_class; ?>"
                 onclick="selectSubject('<?php echo addslashes($card['subject']); ?>')">
 
@@ -1116,7 +1117,7 @@ function render_subject_cards($cards)
 
                 <?php echo $card['icon']; ?>
 
-                <span class="card-text">
+                <span class="card-text dark:text-gray-100">
                     <?php echo htmlspecialchars($card['subject']); ?>
                 </span>
             </div>
@@ -1165,7 +1166,7 @@ function render_subject_cards($cards)
 
         /* Cabecera Creativa Curvada */
         .header-wave {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.8)), url('barnner.png');
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(59, 130, 246, 0.8)), url('../assets/barnner.png');
             background-size: cover;
             background-position: center;
             height: 280px;
@@ -1270,36 +1271,6 @@ function render_subject_cards($cards)
             padding: 0;
             -webkit-user-select: none;
             user-select: none;
-        }
-
-        /* 2. EL FONDO (Lógica de Nitidez y Ajuste) */
-        .schedule-bg {
-            background-image: url('barnner.png');
-            /* 1. EVITA CORTES: Asegura que la imagen se estire al contenedor */
-            background-size: cover;
-
-            /* 2. POSICIÓN: Centra la imagen para que si sobra espacio, no se vea mal */
-            background-position: center center;
-            background-repeat: no-repeat !important;
-
-            /* 3. NITIDEZ EN ANDROID: fixed suele pixelar en tablets, scroll es mejor */
-            background-attachment: scroll;
-
-            /* 4. CLARIDAD: Forzar renderizado de alta calidad */
-            image-rendering: -webkit-optimize-contrast;
-
-            width: 100%;
-            height: 100%;
-            filter: none !important;
-            /* Asegura que ningún filtro externo la empañe */
-        }
-
-        /* Ajuste para Tablets (Evita que la imagen se vea "gigante" o cortada) */
-        @media (min-width: 768px) {
-            .schedule-bg {
-                background-size: 100% 100%;
-                /* Forza a que encaje exacto en la pantalla de la tablet */
-            }
         }
 
         .texto-combinado {
@@ -1436,12 +1407,6 @@ function render_subject_cards($cards)
             box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
         }
 
-        /* Mejora de los Sliders para que no corten el diseño */
-        .schedule-bg {
-            background-color: #f0f2f5;
-            background-attachment: fixed;
-        }
-
         /* Prevenir selección de texto para modo Kiosco */
         * {
             -webkit-tap-highlight-color: transparent;
@@ -1499,7 +1464,52 @@ function render_subject_cards($cards)
     </style>
 </head>
 
-<body class="min-h-screen">
+<body class="min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-500">
+
+    <script>
+                    tailwind.config = {
+                        darkMode: 'class'
+                    }
+                </script>
+                <script>
+                    if (
+                        localStorage.getItem('theme') === 'dark' ||
+                        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)
+                    ) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+    </script>
+
+        <!-- Botón de cambiar tema -->
+    <div>
+        <button id="CambiarModo"
+            aria-label="Cambiar entre modo claro y oscuro"
+            class="fixed top-4 left-4 p-3 rounded-full bg-gray-200 dark:bg-gray-800 transition duration-300 z-[110] hover:scale-110">
+
+            <!-- Icono modo oscuro -->
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 text-gray-800 dark:hidden">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+            </svg>
+
+            <!-- Icono modo claro -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6 text-gray-200 hidden dark:block">
+                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+            </svg>
+        </button>
+    </div>
+    
+                <script>
+                    // Script para el botón de cambio de modo
+                    document.getElementById("CambiarModo").addEventListener("click", () => {
+                        const html = document.documentElement;
+                        const isDark = html.classList.toggle("dark");
+
+                        // Guardar preferencia
+                        localStorage.setItem("theme", isDark ? "dark" : "light");
+                    });
+                </script>
 
     <?php if (!$is_admin && $current_view !== $VIEWS['ADMIN_LOGIN']): // Botón de acceso Admin flotante 
     ?>
@@ -1558,11 +1568,11 @@ function render_subject_cards($cards)
         </style>
 
         <a href="?view=<?php echo $VIEWS['ADMIN_LOGIN']; ?>"
-            class="btn-admin-glow top-4 right-4 md:top-8 md:right-8 w-14 h-14 md:w-16 md:h-16 rounded-2xl z-[100]"
+            class="btn-admin-glow top-4 right-4 p-3 rounded-full bg-gray-200 dark:bg-gray-800 transition duration-300 z-[110] hover:scale-110"
             aria-label="Acceso Administrador"
             title="Acceso Administrador">
 
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white icon-admin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-6 text-gray-800 dark:text-gray-100 icon-admin" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
         </a>
@@ -1578,7 +1588,7 @@ function render_subject_cards($cards)
         </a>
     <?php endif; ?>
 
-    <div class="p-4 md:p-8">
+    <div class="<?php echo in_array($current_view, [$VIEWS['ADMIN_LOGIN'], $VIEWS['SCHEDULE_VIEW']]) ? '' : 'p-4 md:p-8'; ?>">
         <?php if (isset($error_message) && $error_message): ?>
             <div class="max-w-4xl mx-auto bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-lg shadow-md" role="alert">
                 <p class="font-bold">Error del Sistema / Permisos:</p>
@@ -1605,11 +1615,6 @@ function render_subject_cards($cards)
                     --neon-yellow: #fbbf24;
                     --neon-red: #fa2c2c;
                     --neon-pink: #ec4899;
-                }
-
-                .schedule-bg {
-                    background-color: var(--kiosk-bg);
-                    background-image: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent);
                 }
 
                 /* Slider con marco de profundidad */
@@ -1668,16 +1673,16 @@ function render_subject_cards($cards)
                 }
             </style>
 
-            <div class="schedule-bg min-h-screen relative overflow-x-hidden text-white">
+            <div class="min-h-screen relative overflow-x-hidden text-white">
 
                 <div class="relative z-10 container mx-auto px-4 py-8">
 
                     <div class="max-w-4xl mx-auto mb-10 text-center animate-fade-in">
                         <div class="relative inline-block">
                             <div class="absolute inset-0 bg-indigo-500 blur-2xl opacity-20"></div>
-                            <img src="logo.avif" class="relative mx-auto h-24 md:h-32 rounded-[2.5rem] mb-6 border border-white/10 p-2 bg-black">
+                            <img src="../assets/logo.avif" class="relative mx-auto h-24 md:h-32 mb-6 p-2">
                         </div>
-                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase italic">
+                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter uppercase italic text-black dark:text-white">
                             Kiosco <span class="text-yellow-400 drop-shadow-[0_0_10px_rgba(250,204,21,0.3)]">Los Profe’s</span>
                         </h1>
                         <p class="mt-4 text-indigo-400 font-bold uppercase tracking-[0.4em] text-sm">
@@ -1685,18 +1690,16 @@ function render_subject_cards($cards)
                         </p>
                     </div>
 
-
-
                     <div class="max-w-6xl mx-auto space-y-12">
 
                         <div class="relative">
                             <?php render_slider_show($SLIDER_IMAGES); ?>
                         </div>
 
-                        <div class="bg-[#080809] p-10 rounded-[4rem] border border-white/5 shadow-2xl">
+                        <div class="p-10 rounded-[4rem] border border-white/5 shadow-2xl">
                             <div class="flex items-center gap-5 mb-10">
                                 <div class="h-14 w-4 bg-indigo-500 rounded-full shadow-[0_0_15px_rgba(99,102,241,0.5)]"></div>
-                                <h2 class="md:pl[100px] md:pr[100px] xl:pr[100px] xl:pl-[100px] 2xl:pr-[100px] 2xl:pl-[100px] text-3xl md:text-5xl font-black text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] mb-10 text-center uppercase tracking-tighter">
+                                <h2 class="md:pl[100px] md:pr[100px] xl:pr[100px] xl:pl-[100px] 2xl:pr-[100px] 2xl:pl-[100px] text-3xl md:text-5xl font-black text-black dark:text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] mb-10 text-center uppercase tracking-tighter">
                                     ✨ Paso 1: ¡Selecciona la asesoría que necesitas y agenda tu sesión ahora!
                                 </h2>
                             </div>
@@ -1705,19 +1708,18 @@ function render_subject_cards($cards)
                                 <?php render_subject_cards($ASSIGNATURE_CARDS); ?>
                             </div>
                         </div>
-
                     </div>
 
                     <div id="schedule_form_container"
-                        class="fixed inset-0 z-[100] hidden flex items-end md:items-center justify-center bg-black/90 backdrop-blur-xl">
+                        class="bg-gray-100 dark:bg-gray-900 fixed inset-0 z-[100] hidden flex items-end md:items-center justify-center">
 
                         <div class="android-sheet w-full max-w-2xl md:rounded-[4rem] rounded-t-[4rem] flex flex-col max-h-[96dvh] animate-slide-up">
 
-                            <div class="w-full flex justify-center py-6" onclick="hideForm()">
+                            <div class="w-full flex justify-center py-4" onclick="hideForm()">
                                 <div class="w-24 h-2 bg-white/20 rounded-full"></div>
                             </div>
 
-                            <div class="pb-12 overflow-y-auto">
+                            <div class="pb-10 overflow-y-auto">
                                 <div class="block justify-between items-center mb-7">
                                     <div>
                                         <h2 class="text-4xl font-black text-[var(--accent-color)] p-3 italic" id="selected_subject_title">AGENDAR</h2>
@@ -1725,7 +1727,7 @@ function render_subject_cards($cards)
                                             <svg class="w-5 h-5 text-[var(--accent-color)] group-active:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                                             </svg>
-                                        <span class="text-xs font-black text-white uppercase">Regresar</span>
+                                            <span class="text-xs font-black text-white uppercase">Regresar</span>
                                         </button>
                                     </div>
                                 </div>
@@ -1781,7 +1783,7 @@ function render_subject_cards($cards)
                                         margin-bottom: 0.5rem;
                                     }
                                 </style>
-                            
+
                                 <form method="POST" class="space-y-4 max-w-md mx-auto">
                                     <p class="text-[var(--accent-color)] font-bold text-sm tracking-widest uppercase">Completa los datos </p>
                                     <input type="hidden" name="action" value="schedule">
@@ -2262,42 +2264,41 @@ function render_subject_cards($cards)
         // VISTA: Login de Administrador
         // ===============================================
         elseif ($current_view === $VIEWS['ADMIN_LOGIN']): ?>
-                <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-                    style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('por.jpg');">
 
-                    <div class="p-8 bg-white/95 backdrop-blur-sm shadow-2xl rounded-xl max-w-sm mx-auto w-full border-t-8 border-purple-600">
-                        <h2 class="text-3xl font-extrabold text-purple-700 mb-6 border-b pb-2 text-center">Acceso Administrador</h2>
+                <div class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/por.jpg');">
+                    <div class="w-full bg-white/95 backdrop-blur-sm rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800/95 dark:border-gray-700">
+                        <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                            <h2 class="text-3xl md:text-4xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white text-center">Acceso Administrador</h2>
 
-                        <form method="POST" action="" class="space-y-4">
-                            <input type="hidden" name="action" value="admin_login">
+                            <form method="POST" class="space-y-4 md:space-y-6" action="">
+                                <input type="hidden" name="action" value="admin_login">
 
-                            <div>
-                                <label for="admin_email" class="block text-sm font-medium text-gray-700">Email</label>
-                                <input type="email" id="admin_email" name="email" value=""
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 p-2"
-                                    required>
+                                <div>
+                                    <label for="admin_email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                    <input type="email" id="admin_email" name="email" value=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="admin@gmail.com"
+                                        required>
+                                </div>
+
+                                <div>
+                                    <label for="admin_password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
+                                    <input type="password" id="admin_password" name="password" value=""
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 outline-none block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="••••••••"
+                                        required>
+                                </div>
+
+                                <button type="submit"
+                                    class="w-full text-white bg-indigo-600 hover:bg-indigo-700 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
+                                    Iniciar Sesión
+                                </button>
+                            </form>
+
+                            <div class="mt-6 text-center">
+                                <a href="?" class="text-sm text-indigo-600 hover:text-indigo-800 font-semibold text hover:underline dark:text-indigo-500 dark:hover:text-indigo-400">Volver a Agendar Asesoria</a>
                             </div>
-
-                            <div>
-                                <label for="admin_password" class="block text-sm font-medium text-gray-700">Contraseña</label>
-                                <input type="password" id="admin_password" name="password" value=""
-                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-purple-500 focus:ring-purple-500 p-2"
-                                    required>
-                            </div>
-
-                            <button type="submit"
-                                class="w-full py-3 px-4 border border-transparent rounded-lg shadow-lg text-base font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out transform hover:scale-[1.01]">
-                                Iniciar Sesión
-                            </button>
-                        </form>
-
-                        <div class="mt-6 text-center">
-                            <a href="?" class="text-sm text-indigo-600 hover:text-indigo-800 font-semibold">Volver a Agendar Asesoria</a>
                         </div>
                     </div>
                 </div>
-
-
             <?php
 
         // ===============================================
@@ -2357,7 +2358,6 @@ function render_subject_cards($cards)
                                 <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500 border-2 border-white"></span>
                             </span>
                         </div>
-
                         <div class="flex flex-col">
                             <div class="flex items-center gap-2">
                                 <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Sesión activa</p>
@@ -2408,20 +2408,13 @@ function render_subject_cards($cards)
                 foreach ($count_cards as $key => $card): ?>
                     <div class="<?php echo $card['color']; ?> p-6 rounded-2xl text-white shadow-xl flex items-center justify-between transform hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 cursor-pointer group relative overflow-hidden"
                         onclick="window.location.href='?view=<?php echo $VIEWS['ADMIN_DASHBOARD']; ?>&filter=<?php echo $key; ?>'">
-
                         <div class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-
                         <div class="relative z-10">
-                            <p class="text-4xl font-black tracking-tight mb-1">
-                                <?php echo $card['count']; ?>
-                            </p>
-                            <p class="text-xs font-bold uppercase tracking-widest opacity-90 group-hover:opacity-100 transition-opacity">
-                                <?php echo $card['title']; ?>
-                            </p>
+                            <p class="text-4xl font-black tracking-tight mb-1"><?php echo $card['count']; ?></p>
+                            <p class="text-xs font-bold uppercase tracking-widest opacity-90"><?php echo $card['title']; ?></p>
                         </div>
-
-                        <div class="relative z-10 bg-white/20 p-3 rounded-lg backdrop-blur-sm group-hover:bg-white/30 transition-colors duration-300">
-                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <div class="relative z-10 bg-white/20 p-3 rounded-lg backdrop-blur-sm">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="<?php echo $card['icon']; ?>"></path>
                             </svg>
                         </div>
@@ -2504,6 +2497,7 @@ function render_subject_cards($cards)
                     }
                 </script>
             </div>
+
             <div class="bg-transparent">
 
                 <div class="overflow-x-auto bg-white shadow-2xl shadow-gray-200/50 rounded-[2rem] border border-gray-100 mb-8 scrollbar-hide touch-pan-x">

@@ -16,8 +16,8 @@ $is_expired = $current_appointment['expires_at'] && $current_appointment['expire
 
 <div class="max-w-2xl mx-auto mt-10 p-8 bg-white rounded-xl shadow-2xl border-t-8 
     <?php echo ($current_appointment['status'] === 'PENDING_VALIDATION') ? 'border-green-500' : 'border-red-500'; ?>">
-    
+
     <h2 class="text-3xl font-bold mb-6 text-gray-800 text-center">
         <?php echo ($current_appointment['status'] === 'PENDING_PAYMENT') ? '🕒 Pago Pendiente' : '✅ Comprobante Enviado (Validación)'; ?>
     </h2>
-    </div>
+</div>
